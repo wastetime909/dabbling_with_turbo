@@ -1,0 +1,40 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Projects</h1>
+<div class='container'>
+  <table id="projects" class='table'>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Active
+      </th>
+      <th>
+        Actions
+      </th>
+    </tr>
+    <% @projects.each do |project| %>
+      <tr id="<%= dom_id project %>">
+        <td>
+          <%= project.name %>
+        </td>
+        <td>
+          <%= project.active %>
+        </td>
+        <td>
+          <%= link_to "Show", project %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_project_path(project) %>
+        </td>
+        <td>
+          <%= link_to "Destroy", project, "data-turbo-method": :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to "New project", new_project_path %>
+</div>
+
+
