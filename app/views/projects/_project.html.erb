@@ -1,4 +1,4 @@
-<div id="<%= dom_id project %>">
+<%= turbo_frame_tag dom_id(project) do %>
   <p>
     <strong>Name:</strong>
     <%= project.name %>
@@ -9,4 +9,8 @@
     <%= project.active %>
   </p>
 
-</div>
+    <%= link_to "Edit this project", edit_project_path(project), target: :_top %>
+
+    <%= button_to "Destroy this project", project, "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure?" %>
+
+<% end %>
